@@ -2,7 +2,7 @@
 
 ## 📋 Prasyarat
 Sebelum mulai, pastikan:
-- Docker dan Docker Compose sudah terinstall di server kamu.
+- Docker dan Docker Compose sudah terinstall di server jika sudah ada bisa di skip langsung ke step 2.
 - Sudah memiliki akses ke UniFi Controller.
 - Telah membuat network Docker bernama `unifi-net`.
 
@@ -179,4 +179,6 @@ docker-compose up -d
 - Aktifkan HTTPS jika sistem diakses dari internet.
 
 ---
+
+## Saya Dimas Bentar si Pemburu Berkah ucapkan sekian dan Terimakasih!!!
 
