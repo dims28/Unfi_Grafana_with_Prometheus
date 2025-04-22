@@ -167,9 +167,13 @@ docker-compose up -d
 ## 9. Import Dashboard UniFi
 
 - Di Grafana → klik `+` → `Import`
-- Gunakan salah satu dashboard ID:
-  - `11310` → UniFi General
-  - `11311` → UniFi Client Insights
+- Gunakan dashboard ID di bawah ini sesuai yang anda perlukan:
+          Dashboard Name	Grafana.com ID	Description
+- 11311	- UniFi Network Dashboard	> Overview of UniFi network devices, traffic, clients
+- 11312 - UniFi Client Insights	> Focus on connected clients, bandwidth, stats
+- 11313 - UniFi USG/UDM Statistics > Graphs for WAN, DPI, and firewall stats from USG/UDM
+- 11314	- UniFi Device Statistics > Device health, traffic, CPU/memory, etc.
+- 11315	- UniFi WiFi Insights	> Wireless stats like signal, noise, retries
 
 ---
 
