@@ -148,8 +148,8 @@ docker-compose up -d
 
 ## 7. Cek Semua Berjalan
 
-- Prometheus: [http://localhost:9090/targets](http://localhost:9090/targets)  
-- UniFi Poller: [http://localhost:9130/metrics](http://localhost:9130/metrics)  
+- Prometheus: [http://localhost:9090/targets](http://localhost:9090/targets)
+  (cek UniFi Poller state harus up)
 - Grafana: [http://localhost:3000](http://localhost:3000)  
   (default login: `admin / admin`)
   
