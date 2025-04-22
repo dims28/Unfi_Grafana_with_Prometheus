@@ -1,6 +1,6 @@
-# 📘 Tutorial: Monitoring UniFi on Grafana with Prometheus 
+# Tutorial: Monitoring UniFi on Grafana with Prometheus 
 
-## 📋 Prasyarat
+## Gass
 Sebelum mulai, pastikan:
 - Docker dan Docker Compose sudah terinstall di server jika sudah ada bisa di skip langsung ke step 2.
 - Sudah memiliki akses ke UniFi Controller.
@@ -8,45 +8,45 @@ Sebelum mulai, pastikan:
 
 ---
 
-## 🐳 1. Install Docker dan Docker Compose
+## 1. Install Docker dan Docker Compose
 
-### 🔄 Update sistem:
+### Update sistem:
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
 
-### ⚙️ Install dependensi:
+###  Install dependensi:
 ```bash
 sudo apt install ca-certificates curl gnupg lsb-release -y
 ```
 
-### 🔐 Tambahkan GPG Key:
+### Tambahkan GPG Key:
 ```bash
 sudo mkdir -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg \
   --dearmor -o /etc/apt/keyrings/docker.gpg
 ```
 
-### 📦 Tambahkan repository Docker:
+### Tambahkan repository Docker:
 ```bash
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
 https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | \
 sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
 
-### 📥 Install Docker:
+### Install Docker:
 ```bash
 sudo apt update
 sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 ```
 
-### ✅ Cek versi Docker:
+### Cek versi Docker:
 ```bash
 docker --version
 docker compose version
 ```
 
-### 🙋‍♂️ (Opsional) Jalankan Docker tanpa `sudo`:
+### (Opsional) Jalankan Docker tanpa `sudo`:
 ```bash
 sudo usermod -aG docker $USER
 newgrp docker
@@ -54,7 +54,7 @@ newgrp docker
 
 ---
 
-## 🗂️ 2. Buat Struktur Folder
+## 2. Buat Struktur Folder
 ```bash
 mkdir unifi-monitoring && cd unifi-monitoring
 mkdir prometheus grafana
@@ -62,7 +62,7 @@ mkdir prometheus grafana
 
 ---
 
-## 📝 3. Buat File `docker-compose.yml`
+## 3. Buat File `docker-compose.yml`
 
 ```yaml
 version: '3'
@@ -114,7 +114,7 @@ networks:
 
 ---
 
-## ⚙️ 4. Buat File `prometheus.yml`
+## 4. Buat File `prometheus.yml`
 
 Buat file di dalam folder `prometheus/`:
 
@@ -130,7 +130,7 @@ scrape_configs:
 
 ---
 
-## 🌐 5. Buat Docker Network (jika belum ada)
+## 5. Buat Docker Network (jika belum ada)
 
 ```bash
 docker network create unifi-net
@@ -138,7 +138,7 @@ docker network create unifi-net
 
 ---
 
-## 🚀 6. Jalankan Stack
+## 6. Jalankan Stack
 
 ```bash
 docker-compose up -d
@@ -146,16 +146,16 @@ docker-compose up -d
 
 ---
 
-## 🔍 7. Cek Semua Berjalan
+## 7. Cek Semua Berjalan
 
 - Prometheus: [http://localhost:9090](http://localhost:9090)  
 - UniFi Poller: [http://localhost:9130/metrics](http://localhost:9130/metrics)  
 - Grafana: [http://localhost:3000](http://localhost:3000)  
   (default login: `admin / admin`)
-
+  *rubah localhost menjadi ip_server yang di install jika kamu akses bukan dari local ya*
 ---
 
-## 📊 8. Tambahkan Data Source di Grafana
+## 8. Tambahkan Data Source di Grafana
 
 - Masuk ke menu `Settings > Data Sources`
 - Tambahkan **Prometheus**
@@ -163,7 +163,7 @@ docker-compose up -d
 
 ---
 
-## 📈 9. Import Dashboard UniFi
+## 9. Import Dashboard UniFi
 
 - Di Grafana → klik `+` → `Import`
 - Gunakan salah satu dashboard ID:
@@ -172,7 +172,7 @@ docker-compose up -d
 
 ---
 
-## 🔐 10. Tips Keamanan
+## 10. Tips Keamanan
 
 - Jangan gunakan password default.
 - Simpan variabel rahasia dalam `.env` file.
