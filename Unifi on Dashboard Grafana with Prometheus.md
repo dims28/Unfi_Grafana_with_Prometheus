@@ -85,9 +85,9 @@ services:
     container_name: unifi-poller
     restart: always
     environment:
-      - UP_UNIFI_DEFAULT_USER=administrator
-      - UP_UNIFI_DEFAULT_PASS=4RADrDtd
-      - UP_UNIFI_DEFAULT_URL=https://10.1.1.74:8443
+      - UP_UNIFI_DEFAULT_USER=isi_user_controler
+      - UP_UNIFI_DEFAULT_PASS=isi_password_di_controler
+      - UP_UNIFI_DEFAULT_URL=https://IP_Controler:8443
       - UP_UNIFI_CONTROLLER_TYPE=unifi_os
       - UP_PROMETHEUS_DISABLE=false
       - UP_PROMETHEUS_NAMESPACE=unpoller
