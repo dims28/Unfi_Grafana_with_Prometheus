@@ -1,6 +1,6 @@
 # Tutorial: Monitoring UniFi on Grafana with Prometheus 
 
-## Gass
+## Lets Go!!!
 Sebelum mulai, pastikan:
 - Docker dan Docker Compose sudah terinstall di server jika sudah ada bisa di skip langsung ke step 2.
 - Sudah memiliki akses ke UniFi Controller.
